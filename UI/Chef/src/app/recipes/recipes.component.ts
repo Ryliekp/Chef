@@ -1,23 +1,27 @@
-import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+
 import { Recipe } from '../recipe';
-import { RECIPES } from '../mock-recipes';
-import { RecipeDetailComponent } from "../recipe-detail/recipe-detail.component";
+import { RecipeService } from '../recipe.service';
 
 @Component({
-  standalone: true,
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
-  imports: [RecipeDetailComponent, NgFor],
 })
-export class RecipesComponent {
-  recipes = RECIPES;
-
+export class RecipesComponent implements OnInit{
   selectedRecipe?: Recipe;
+  
+  recipes: Recipe[] = [];
 
-  onSelect(recipe: Recipe): void {
-    this.selectedRecipe = recipe;
+  constructor(private recipeService: RecipeService) {}
+  
+  ngOnInit(): void {
+    this.getRecipes();
+  }
+
+  getRecipes(): void {
+    this.recipeService.getRecipes()
+        .subscribe(recipes => this.recipes = recipes);
   }
 }
 
