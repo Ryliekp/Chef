@@ -121,7 +121,7 @@ public class RecipeFileDAO implements RecipeDAO {
         recipes = new TreeMap<>();
         nextId = 0;
 
-        // Deserializes the JSON objects from the file into an array of recipees
+        // Deserializes the JSON objects from the file into an array of recipes
         // readValue will throw an IOException if there's an issue with the file
         // or reading from the file
         Recipe[] recipeArray = objectMapper.readValue(new File(filename),Recipe[].class);

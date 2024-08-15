@@ -9,8 +9,6 @@ import { RecipeService } from '../recipe.service';
   styleUrls: ['./recipes.component.css'],
 })
 export class RecipesComponent implements OnInit{
-  selectedRecipe?: Recipe;
-  
   recipes: Recipe[] = [];
 
   constructor(private recipeService: RecipeService) {}
@@ -22,6 +20,20 @@ export class RecipesComponent implements OnInit{
   getRecipes(): void {
     this.recipeService.getRecipes()
         .subscribe(recipes => this.recipes = recipes);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.recipeService.addRecipe({ name } as Recipe)
+      .subscribe(recipe => {
+        this.recipes.push(recipe);
+      });
+  }
+
+  delete(recipe: Recipe): void {
+    this.recipes = this.recipes.filter(h => h !== recipe);
+    this.recipeService.deleteRecipe(recipe.id).subscribe();
   }
 }
 

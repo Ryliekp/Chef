@@ -26,6 +26,7 @@ import com.recipes.api.recipesapi.model.Recipe;
  * method handler to the Spring framework
  * 
  * @author SWEN Faculty
+ * @author Rylie Platt, rkp6174
  */
 
 @RestController
@@ -71,7 +72,7 @@ public class RecipeController {
     }
 
     /**
-     * Responds to the GET request for all {@linkplain Recip recipees}
+     * Responds to the GET request for all {@linkplain Recipe recipes}
      * 
      * @return ResponseEntity with array of {@link Recipe recipe} objects (may be empty) and
      * HTTP status of OK<br>
@@ -80,9 +81,18 @@ public class RecipeController {
     @GetMapping("")
     public ResponseEntity<Recipe[]> getRecipes() {
         LOG.info("GET /recipes");
-
-        // Replace below with your implementation
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        //Replaced with my implementation - Rylie
+        try {
+            Recipe[] recipes = recipeDao.getRecipes();
+            if(recipes != null)
+                return new ResponseEntity<Recipe[]>(recipes,HttpStatus.OK);
+            else
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        catch(IOException e) {
+            LOG.log(Level.SEVERE,e.getLocalizedMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**
@@ -101,9 +111,18 @@ public class RecipeController {
     @GetMapping("/")
     public ResponseEntity<Recipe[]> searchRecipes(@RequestParam String name) {
         LOG.info("GET /recipes/?name="+name);
-
-        // Replace below with your implementation
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        //Replaced with my implementation - Rylie
+        try {
+            Recipe[] recipes = recipeDao.findRecipes(name);
+            if(recipes != null)
+                return new ResponseEntity<Recipe[]>(recipes,HttpStatus.OK);
+            else
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        catch(IOException e) {
+            LOG.log(Level.SEVERE,e.getLocalizedMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**
@@ -119,8 +138,20 @@ public class RecipeController {
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
         LOG.info("POST /recipes " + recipe);
 
-        // Replace below with your implementation
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        //Replaced with my implementation - Rylie
+        try {
+            Recipe []recipes = recipeDao.getRecipes();
+            for(Recipe h : recipes){
+                if(h == recipe)
+                    return new ResponseEntity<>(HttpStatus.CONFLICT);
+            }
+            Recipe newRecipe = recipeDao.createRecipe(recipe);
+            return new ResponseEntity<Recipe>(newRecipe,HttpStatus.CREATED);
+        }
+        catch(IOException e) {
+            LOG.log(Level.SEVERE,e.getLocalizedMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**
@@ -136,8 +167,18 @@ public class RecipeController {
     public ResponseEntity<Recipe> updateRecipe(@RequestBody Recipe recipe) {
         LOG.info("PUT /recipes " + recipe);
 
-        // Replace below with your implementation
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        //Replaced with my implementation - Rylie
+        try {
+            Recipe h = recipeDao.updateRecipe(recipe);
+            if(h != null)
+                return new ResponseEntity<Recipe>(h,HttpStatus.OK);
+            else
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        catch(IOException e) {
+            LOG.log(Level.SEVERE,e.getLocalizedMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**
@@ -153,7 +194,17 @@ public class RecipeController {
     public ResponseEntity<Recipe> deleteRecipe(@PathVariable int id) {
         LOG.info("DELETE /recipes/" + id);
 
-        // Replace below with your implementation
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        //Replaced with my implementation - Rylie
+        try {
+            boolean h = recipeDao.deleteRecipe(id);
+            if(h)
+                return new ResponseEntity<Recipe>(HttpStatus.OK);
+            else
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        catch(IOException e) {
+            LOG.log(Level.SEVERE,e.getLocalizedMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

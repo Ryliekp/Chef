@@ -10,7 +10,7 @@ import com.recipes.api.recipesapi.model.Recipe;
  */
 public interface RecipeDAO {
     /**
-     * Retrieves all {@linkplain Recipe recipees}
+     * Retrieves all {@linkplain Recipe recipes}
      * 
      * @return An array of {@link Recipe recipe} objects, may be empty
      * 
