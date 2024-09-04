@@ -7,8 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Ingredient {
     private static final Logger LOG = Logger.getLogger(Ingredient.class.getName());
 
-    // Package private for tests
-    static final String STRING_FORMAT = "Ingredient [id=%d, name=%s, quantity=%f, unit=%s]";
+    
 
     @JsonProperty("id") private int id;
     @JsonProperty("name") private String name;
@@ -59,13 +58,7 @@ public class Ingredient {
 
     public void setUnit(String unit) {this.unit = unit;}
 
-    public String getUnits() {return unit;}
+    public String getUnit() {return unit;}
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString() {
-        return String.format(STRING_FORMAT,id,name, quantity, unit);
-    }
+    
 }

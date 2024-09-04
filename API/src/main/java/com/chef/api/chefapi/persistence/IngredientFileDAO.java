@@ -178,7 +178,7 @@ public class IngredientFileDAO implements IngredientDAO {
         synchronized(ingredients) {
             // We create a new ingredient object because the id field is immutable
             // and we need to assign the next unique id
-            Ingredient newIngredient = new Ingredient(nextId(),ingredient.getName(), ingredient.getQuantity(), ingredient.getUnits());
+            Ingredient newIngredient = new Ingredient(nextId(),ingredient.getName(), ingredient.getQuantity(), ingredient.getUnit());
             ingredients.put(newIngredient.getId(),newIngredient);
             save(); // may throw an IOException
             return newIngredient;
