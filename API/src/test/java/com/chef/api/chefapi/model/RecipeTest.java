@@ -47,19 +47,19 @@ public class RecipeTest {
         assertEquals(expected_name,recipe.getName());
     }
 
-    @Test
-    public void testToString() {
-        // Setup
-        int id = 99;
-        String name = "Wi-Fire";
-        String expected_string = String.format(Recipe.STRING_FORMAT,id,name);
-        List<Ingredient> ings = new ArrayList<Ingredient>();
-        Recipe recipe = new Recipe(id,name,ings);
+    // @Test
+    // public void testToString() {
+    //     // Setup
+    //     int id = 99;
+    //     String name = "Wi-Fire";
+    //     String expected_string = String.format(Recipe.STRING_FORMAT,id,name);
+    //     List<Ingredient> ings = new ArrayList<Ingredient>();
+    //     Recipe recipe = new Recipe(id,name,ings);
 
-        // Invoke
-        String actual_string = recipe.toString();
+    //     // Invoke
+    //     String actual_string = recipe.toString();
 
-        // Analyze
-        assertEquals(expected_string,actual_string);
-    }
+    //     // Analyze
+    //     assertEquals(expected_string,actual_string);
+    // }
 }

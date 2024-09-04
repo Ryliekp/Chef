@@ -10,8 +10,8 @@
 	<groupId>com.chef.api</groupId>
 	<artifactId>chef-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>recipes-api</name>
-	<description>API for Tour of Recipes</description>
+	<name>chef-api</name>
+	<description>API for Chef</description>
 	<properties>
 		<java.version>11</java.version>
 		<jacoco.version>0.8.7</jacoco.version>
@@ -172,7 +172,7 @@
 					  <descriptors>
 						<descriptor>src/assembly/zip.xml</descriptor>
 					  </descriptors>
-					  <finalName>recipes-api</finalName>
+					  <finalName>chef-api</finalName>
 					  <appendAssemblyId>false</appendAssemblyId>
 					</configuration>
 					<goals>

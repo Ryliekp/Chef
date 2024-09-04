@@ -7,8 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Ingredient {
     private static final Logger LOG = Logger.getLogger(Ingredient.class.getName());
 
-    
-
     @JsonProperty("id") private int id;
     @JsonProperty("name") private String name;
     @JsonProperty("quantity") private double quantity;
