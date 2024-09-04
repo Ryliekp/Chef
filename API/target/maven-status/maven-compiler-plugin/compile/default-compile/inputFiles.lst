@@ -1,6 +1,10 @@
-/Users/rylieplatt/Documents/Chef/API/src/main/java/com/recipes/api/recipesapi/controller/RecipeController.java
-/Users/rylieplatt/Documents/Chef/API/src/main/java/com/recipes/api/recipesapi/WebConfig.java
-/Users/rylieplatt/Documents/Chef/API/src/main/java/com/recipes/api/recipesapi/RecipesApiApplication.java
-/Users/rylieplatt/Documents/Chef/API/src/main/java/com/recipes/api/recipesapi/persistence/RecipeDAO.java
-/Users/rylieplatt/Documents/Chef/API/src/main/java/com/recipes/api/recipesapi/persistence/RecipeFileDAO.java
-/Users/rylieplatt/Documents/Chef/API/src/main/java/com/recipes/api/recipesapi/model/Recipe.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/controller/RecipeController.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/controller/IngredientController.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/persistence/IngredientDAO.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/persistence/RecipeFileDAO.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/WebConfig.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/persistence/IngredientFileDAO.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/ChefApiApplication.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/persistence/RecipeDAO.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/model/Ingredient.java
+/Users/rylieplatt/Documents/Chef/API/src/main/java/com/chef/api/chefapi/model/Recipe.java

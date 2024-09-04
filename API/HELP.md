@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'com.recipes.api.recipes-api' is invalid and this project uses 'com.recipes.api.recipesapi' instead.
+* The original package name 'com.chef.api.chef-api' is invalid and this project uses 'com.chef.api.chefapi' instead.
 
 # Getting Started
 

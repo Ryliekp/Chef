@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @Tag("Controller-tier")
 @SpringBootTest
-class RecipesApiApplicationTests {
+class ChefApiApplicationTests {
 
 	@Test
 	void testContextLoads() {
