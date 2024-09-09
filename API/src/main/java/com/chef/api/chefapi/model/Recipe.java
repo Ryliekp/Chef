@@ -67,12 +67,4 @@ public class Recipe {
      * @return The list of ingredients
      */
     public List<Ingredient> getIngredients() {return ingredients;}
-
-    // /**
-    //  * {@inheritDoc}
-    //  */
-    // @Override
-    // public String toString() {
-    //     return String.format(STRING_FORMAT,id,name);
-    // }
 }
