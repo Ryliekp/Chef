@@ -26,7 +26,7 @@ import com.chef.api.chefapi.model.Ingredient;
  * method handler to the Spring framework
  * 
  * @author SWEN Faculty
- * @author Rylie Platt, rkp6174
+ * @author Rylie Platt, rkp6174 
  */
 
 @RestController
